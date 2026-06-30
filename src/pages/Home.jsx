@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 
 const pageData = {
@@ -6,6 +7,7 @@ const pageData = {
     title: 'Build something minimal.',
     subtitle: 'A clean starting point for your next idea.',
     tag: 'Open Source',
+    cta: { primary: 'Get Started', secondary: 'View Source' },
   },
   features: [
     {
@@ -39,6 +41,10 @@ export function Home() {
         <Badge variant="outline">{hero.tag}</Badge>
         <h1 className="font-display text-5xl font-bold tracking-tight">{hero.title}</h1>
         <p className="text-lg text-muted-foreground max-w-md mx-auto">{hero.subtitle}</p>
+        <div className="flex items-center justify-center gap-3 pt-2">
+          <Button size="lg">{hero.cta.primary}</Button>
+          <Button size="lg" variant="outline">{hero.cta.secondary}</Button>
+        </div>
       </section>
 
       {/* Features */}
