@@ -1,22 +1,34 @@
-import { Separator } from '@/components/ui/separator'
-
+// Header matches the screenshot: near-white bg, thin 1px black bottom border,
+// logo left (orange square chip + wordmark), nav right.
 export function Header({ site }) {
   return (
-    <header className="sticky top-0 z-10 bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto max-w-4xl px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">{site.logo}</span>
-          <span className="font-display text-xl font-bold tracking-tight">{site.name}</span>
+    <header className="sticky top-0 z-10 bg-[#faf7f2]/90 backdrop-blur-sm border-b border-ink-900">
+      <div className="mx-auto max-w-5xl px-6 h-12 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {/* orange logo chip — matches the square icon in screenshot */}
+          <span
+            className="inline-flex items-center justify-center w-7 h-7 rounded-[6px] text-sm select-none"
+            style={{ background: '#e84d1b', border: '1.5px solid #111009' }}
+          >
+            {site.logo}
+          </span>
+          <span className="font-display text-[15px] font-bold text-ink-900 tracking-tight">
+            {site.name}
+          </span>
         </div>
-        <nav className="flex gap-6 text-sm text-muted-foreground">
+
+        <nav className="flex gap-6">
           {site.nav.map((item) => (
-            <a key={item.label} href={item.href} className="hover:text-foreground transition-colors">
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-sm font-medium text-ink-600 hover:text-ink-900 transition-colors"
+            >
               {item.label}
             </a>
           ))}
         </nav>
       </div>
-      <Separator />
     </header>
   )
 }
