@@ -1,3 +1,4 @@
+import { Lightning, PaintBrush, TextAa } from '@phosphor-icons/react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
@@ -13,19 +14,19 @@ const pageData = {
   features: [
     {
       id: 1,
-      icon: '⚡',
+      Icon: Lightning,
       title: 'Lightning fast',
       description: 'Vite-powered dev server with instant HMR.',
     },
     {
       id: 2,
-      icon: '🎨',
+      Icon: PaintBrush,
       title: 'Styled by default',
       description: 'Tailwind CSS + shadcn primitives out of the box.',
     },
     {
       id: 3,
-      icon: '🔤',
+      Icon: TextAa,
       title: 'Great typography',
       description: 'Bricolage Grotesque + Plus Jakarta Sans via Google Fonts.',
     },
@@ -40,7 +41,6 @@ export function Home() {
 
       {/* ── Hero ── */}
       <section className="text-center space-y-5 pt-10 max-w-2xl mx-auto">
-        {/* pill badge — matches "400+ free calculators" in screenshot */}
         <Badge variant="outline">{hero.badge}</Badge>
 
         <h1 className="font-display text-5xl font-extrabold tracking-tight text-ink-900 leading-[1.05]">
@@ -51,13 +51,11 @@ export function Home() {
           {hero.subtitle}
         </p>
 
-        {/* CTA row */}
         <div className="flex items-center justify-center gap-3 pt-1">
           <Button variant="primary" size="lg">{hero.cta.primary}</Button>
           <Button variant="secondary" size="lg">{hero.cta.secondary}</Button>
         </div>
 
-        {/* quick-link pill chips — matches row below search in screenshot */}
         <div className="flex items-center justify-center flex-wrap gap-2 pt-1">
           {hero.quickLinks.map((label) => (
             <button key={label} className="pill-chip">{label}</button>
@@ -75,15 +73,16 @@ export function Home() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-4">
-          {features.map((feature) => (
-            <Card key={feature.id} className="cursor-pointer">
+          {features.map(({ id, Icon, title, description }) => (
+            <Card key={id} className="cursor-pointer">
               <CardHeader>
-                {/* salmon icon chip — exact match to category tiles in screenshot */}
-                <span className="icon-chip mb-2 text-lg">{feature.icon}</span>
-                <CardTitle>{feature.title}</CardTitle>
+                <span className="icon-chip mb-2">
+                  <Icon size={22} weight="duotone" color="#111009" />
+                </span>
+                <CardTitle>{title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-ink-500 leading-relaxed">{feature.description}</p>
+                <p className="text-sm text-ink-500 leading-relaxed">{description}</p>
               </CardContent>
             </Card>
           ))}

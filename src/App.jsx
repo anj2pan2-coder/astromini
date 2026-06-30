@@ -3,7 +3,7 @@ import { Home } from '@/pages/Home'
 
 const siteData = {
   name: 'Astromini',
-  logo: '🌌',
+  logo: null, // rendered as Phosphor <Equals> icon in Header/Footer
   copyright: 'All rights reserved.',
   nav: [
     { label: 'Home', href: '#' },

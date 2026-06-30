@@ -1,17 +1,18 @@
-// Footer: solid ink-black inverse section — matches bottom of screenshot
+import { Equals } from '@phosphor-icons/react'
+
 export function Footer({ site }) {
   return (
     <footer className="bg-ink-900 border-t-2 border-ink-900 mt-auto">
       <div className="mx-auto max-w-5xl px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <span
-            className="inline-flex items-center justify-center w-6 h-6 rounded-[5px] text-xs"
-            style={{ background: '#e84d1b', border: '1.5px solid rgba(255,255,255,0.2)' }}
+            className="inline-flex items-center justify-center w-6 h-6 rounded-[5px]"
+            style={{ background: '#e84d1b', border: '1.5px solid rgba(255,255,255,0.15)' }}
           >
-            {site.logo}
+            <Equals size={12} weight="bold" color="#111009" />
           </span>
           <span className="font-display text-sm font-bold text-ink-50">{site.name}</span>
-          <span className="text-xs text-ink-500 ml-2">
+          <span className="text-xs text-ink-500 ml-1">
             &copy; {new Date().getFullYear()} {site.copyright}
           </span>
         </div>

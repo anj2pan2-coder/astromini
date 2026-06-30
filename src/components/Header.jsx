@@ -1,16 +1,15 @@
-// Header matches the screenshot: near-white bg, thin 1px black bottom border,
-// logo left (orange square chip + wordmark), nav right.
+import { Equals } from '@phosphor-icons/react'
+
 export function Header({ site }) {
   return (
     <header className="sticky top-0 z-10 bg-[#faf7f2]/90 backdrop-blur-sm border-b border-ink-900">
       <div className="mx-auto max-w-5xl px-6 h-12 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* orange logo chip — matches the square icon in screenshot */}
           <span
-            className="inline-flex items-center justify-center w-7 h-7 rounded-[6px] text-sm select-none"
+            className="inline-flex items-center justify-center w-7 h-7 rounded-[6px]"
             style={{ background: '#e84d1b', border: '1.5px solid #111009' }}
           >
-            {site.logo}
+            <Equals size={14} weight="bold" color="#111009" />
           </span>
           <span className="font-display text-[15px] font-bold text-ink-900 tracking-tight">
             {site.name}
